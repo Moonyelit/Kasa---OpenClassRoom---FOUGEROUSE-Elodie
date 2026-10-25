@@ -1,0 +1,47 @@
+@use '../styles/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: $max-width;
+  margin: 45px auto 50px;
+
+  &__logo {
+    display: block;
+    width: 210px;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 57px;
+  }
+
+  &__link {
+    font-size: 1.5rem;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .header {
+    margin: 20px auto 27px;
+
+    &__logo {
+      width: 145px;
+    }
+
+    &__nav {
+      gap: 26px;
+    }
+
+    &__link {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}
