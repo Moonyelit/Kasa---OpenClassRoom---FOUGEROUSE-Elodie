@@ -1,14 +1,34 @@
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .banner {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 223px;
-  border-radius: 25px;
+  align-items: center;
+  height: 13.9375rem;
   overflow: hidden;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: $radius-l;
+  box-shadow: $shadow;
+
+  @include mobile {
+    justify-content: flex-start;
+    height: 6.9375rem;
+    padding-left: 1rem;
+    border-radius: $radius-m;
+  }
+
+  // Voile noir par-dessus la photo
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: $overlay-light;
+  }
+
+  &--with-title::after {
+    background-color: $overlay-dark;
+  }
 
   &__image {
     position: absolute;
@@ -18,38 +38,18 @@
     object-fit: cover;
   }
 
-  // Voile noir par-dessus la photo
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  &--with-title::after {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-
   &__title {
     position: relative;
     z-index: 1;
     color: $color-white;
-    font-size: 3rem;
-    font-weight: 700;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  }
-}
+    font-size: $font-size-title;
+    font-weight: $font-bold;
+    text-shadow: $shadow;
 
-@media (max-width: $mobile) {
-  .banner {
-    justify-content: flex-start;
-    height: 111px;
-    padding-left: 16px;
-    border-radius: 10px;
-
-    &__title {
-      max-width: 230px;
-      font-size: 1.5rem;
+    // Largeur choisie pour couper le titre en deux lignes comme sur la maquette
+    @include mobile {
+      max-width: 14.375rem;
+      font-size: $font-size-l;
       line-height: 1;
     }
   }

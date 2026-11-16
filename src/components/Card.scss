@@ -1,16 +1,16 @@
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .card {
   position: relative;
   display: block;
   aspect-ratio: 1;
-  border-radius: 10px;
   overflow: hidden;
+  border-radius: $radius-m;
 
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  @include mobile {
+    height: 15.9375rem;
+    aspect-ratio: auto;
   }
 
   // Dégradé sombre en bas pour que le titre reste lisible
@@ -21,21 +21,20 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.5) 100%);
   }
 
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &__title {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
+    right: $spacing-m;
+    bottom: $spacing-m;
+    left: $spacing-m;
     z-index: 1;
     color: $color-white;
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-}
-
-@media (max-width: $mobile) {
-  .card {
-    aspect-ratio: auto;
-    height: 255px;
+    font-size: $font-size-m;
+    font-weight: $font-bold;
   }
 }

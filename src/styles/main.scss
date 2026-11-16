@@ -7,22 +7,22 @@
 }
 
 body {
-  font-family: $font-main;
-  font-weight: 500;
-  color: $color-black;
   background-color: $color-white;
+  color: $color-black;
+  font-family: $font-main;
+  font-weight: $font-medium;
 }
 
 // Le footer reste en bas de l'écran même quand la page est courte
 #root {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
   flex: 1;
-  width: 90%;
+  width: $page-width;
   max-width: $max-width;
   margin: 0 auto;
 }

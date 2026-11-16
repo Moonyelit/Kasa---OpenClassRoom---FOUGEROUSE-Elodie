@@ -1,47 +1,46 @@
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: $page-width;
   max-width: $max-width;
-  margin: 45px auto 50px;
+  margin: 2.8125rem auto $spacing-xl;
+
+  @include mobile {
+    margin: $spacing-m auto $spacing-page-mobile;
+  }
 
   &__logo {
     display: block;
-    width: 210px;
+    width: 13.125rem;
+
+    @include mobile {
+      width: 9.0625rem;
+    }
   }
 
   &__nav {
     display: flex;
-    gap: 57px;
+    gap: 3.5625rem;
+
+    @include mobile {
+      gap: 1.625rem;
+    }
   }
 
   &__link {
-    font-size: 1.5rem;
+    font-size: $font-size-l;
+
+    @include mobile {
+      font-size: $font-size-xs;
+      text-transform: uppercase;
+    }
 
     &.active {
       text-decoration: underline;
-    }
-  }
-}
-
-@media (max-width: $mobile) {
-  .header {
-    margin: 20px auto 27px;
-
-    &__logo {
-      width: 145px;
-    }
-
-    &__nav {
-      gap: 26px;
-    }
-
-    &__link {
-      font-size: 12px;
-      text-transform: uppercase;
     }
   }
 }

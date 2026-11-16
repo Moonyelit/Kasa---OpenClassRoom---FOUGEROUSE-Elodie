@@ -1,34 +1,33 @@
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 209px;
-  margin-top: 50px;
-  padding-top: 66px;
+  height: 13.0625rem;
+  margin-top: $spacing-xl;
+  padding-top: 4.125rem;
   background-color: $color-black;
   color: $color-white;
   text-align: center;
 
+  @include mobile {
+    margin-top: $spacing-page-mobile;
+  }
+
   &__logo {
-    width: 122px;
+    width: 7.625rem;
   }
 
   &__text {
-    margin-top: 40px;
-    font-size: 1.5rem;
-  }
-}
+    margin-top: 2.5rem;
+    font-size: $font-size-l;
 
-@media (max-width: $mobile) {
-  .footer {
-    margin-top: 27px;
-
-    &__text {
-      max-width: 130px;
-      margin-top: 12px;
-      font-size: 12px;
+    @include mobile {
+      max-width: 8.125rem;
+      margin-top: 0.75rem;
+      font-size: $font-size-xs;
     }
   }
 }

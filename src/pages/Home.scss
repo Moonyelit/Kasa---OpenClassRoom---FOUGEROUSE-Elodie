@@ -1,26 +1,23 @@
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .home__gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px 60px;
-  margin-top: 43px;
-  padding: 56px 50px;
-  border-radius: 25px;
+  gap: $spacing-xl 3.75rem;
+  margin-top: 2.6875rem;
+  padding: 3.5rem $spacing-xl;
+  border-radius: $radius-l;
   background-color: $color-grey;
-}
 
-@media (max-width: 1024px) {
-  .home__gallery {
+  @include tablet {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: $mobile) {
-  .home__gallery {
+  @include mobile {
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 22px;
+    gap: $spacing-m;
+    margin-top: 1.375rem;
     padding: 0;
     background-color: transparent;
   }
