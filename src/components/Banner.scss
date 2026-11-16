@@ -1,0 +1,56 @@
+@use '../styles/variables' as *;
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 223px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Voile noir par-dessus la photo
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &--with-title::after {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    color: $color-white;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (max-width: $mobile) {
+  .banner {
+    justify-content: flex-start;
+    height: 111px;
+    padding-left: 16px;
+    border-radius: 10px;
+
+    &__title {
+      max-width: 230px;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+  }
+}
